@@ -1,0 +1,43 @@
+.weather_block {
+    background: white;
+    margin: 15px auto;
+    width: 300px;
+    text-align: center;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+}
+.weather_block__city {
+    margin: 0;
+}
+.weather_block__info_temp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.weather_block__temp {
+    display: inline-block;
+    font-size: 34px;
+    font-weight: bold;
+    margin: 0;
+}
+.weather_block__description{
+    font-size: 20px;
+    margin: 0;
+}
+.weather_block__indicators{
+    font-size: 16px;
+    margin: 10px 0 0 0 ;
+    color: slategrey;
+}
+.weather_block__indicators_value {
+    margin: 0;
+}
+.error {
+    margin-left: 15px;
+    color: brown;
+    font-weight: bold;
+}
+

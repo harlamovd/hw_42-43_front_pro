@@ -1,0 +1,19 @@
+.search_city {
+    font-size: 20px;
+    border-bottom: 1px solid black;
+    padding-bottom: 15px;
+}
+.search_city__input {
+    width: 200px;
+    font-size: 15px;
+}
+.search_city__input::placeholder{
+    color: red;
+    opacity: 0.5;
+}
+.search_city__button {
+    margin: 5px;
+}
+.datalist_element{
+    display: block;
+}
