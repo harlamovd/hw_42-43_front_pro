@@ -1,11 +1,12 @@
 import './SavedCities.css'
-function SavedCities () {
+function SavedCities ({arr, getWeatherSavedCity}) {
+
+    function handleClick (e) {
+        console.log(e)
+    }
     return(
-        <>
-            <h2 className='saved_cities' data-id-citis='ww' >
-                Your saved cities
-            </h2>
-        </>
+        <button className='saved_cities' data-id-city={arr.id} onClick={getWeatherSavedCity}> {arr.name} / {arr.country}
+        </button>
     )
 }
 export default SavedCities

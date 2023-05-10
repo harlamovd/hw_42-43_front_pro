@@ -4,7 +4,7 @@ import cityList from '../cityList/city.list.json'
 import getWeather from "../getWeather/getWeather";
 
 
-function SearchCity ({setObjCreationWeather}){
+function SearchCity ({setObjCreationWeather, addObjInSavedCitiesArr}){
     const city = useRef();
     const [datalistArr, setDatalistArr] = useState(false);
 
@@ -26,6 +26,14 @@ function SearchCity ({setObjCreationWeather}){
             setObjCreationWeather(result);
         }
     }
+    function handleClickSavedCity (){
+        const cityId = validationCityId();
+        if (cityId) {
+            const addObj = cityList.find(el => el.id === +cityId);
+            addObjInSavedCitiesArr(addObj);
+        }
+    }
+
     function handleChangeInput (event) {
         const reg = new RegExp(`^${event.target.value.toLowerCase()}`, 'g');   // toLowerCase
         const arr = cityList.filter(el=> el.name.toLowerCase().match(reg));
@@ -54,7 +62,7 @@ function SearchCity ({setObjCreationWeather}){
                     < RenderDatalist listArr={datalistArr} />
                 </datalist>
                 <button className='search_city__button' onClick={handleClickSearchButton}> Show Weather</button>
-                <button className='search_city__button'> Add Cities</button>
+                <button className='search_city__button' onClick={handleClickSavedCity}>Saved City</button>
             </label>
         </div>
     )
