@@ -1,7 +1,7 @@
-import './SearchCity.css'
+import './SearchCity.css';
 import {useRef, useState} from "react";
-import cityList from '../cityList/city.list.json'
-import getWeather from "../getWeather/getWeather";
+import cityList from '../components/city.list.json';
+import { getWeather } from '../components/helper';
 
 
 function SearchCity ({setObjCreationWeather, addObjInSavedCitiesArr}){

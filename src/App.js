@@ -1,11 +1,11 @@
 import './App.css';
 import MainLayout from "./MainLayout/MainLayout";
-import savedCities from './SavedCities/saved_cities'
+import savedCities from './components/saved_cities';
+import {localStorItem, updateLocalStorItem} from './components/helper';
 
 function App() {
-  if (!(localStorage.getItem('savedCities'))) {
-    localStorage.setItem('savedCities', JSON.stringify(savedCities))
-    console.log('else')
+  if (!(localStorage[localStorItem])) {
+    updateLocalStorItem(savedCities);
   }
   return (
         < MainLayout />

@@ -2,14 +2,14 @@ import './AsideBlock.css'
 import SavedCities from "../SavedCities/SavedCities";
 import SearchCity from "../SearchCity/SearchCity";
 import {useState, useEffect} from "react";
-import getWeather from "../getWeather/getWeather";
+import { getWeather } from '../components/helper';
+import {localStorItem, updateLocalStorItem} from '../components/helper';
 
 function AsideBlock ({setObjCreationWeather}) {
-
-    const [savedCitiesArr, setSavedCitiesArr] = useState(JSON.parse(localStorage.getItem('savedCities')));
+    const [savedCitiesArr, setSavedCitiesArr] = useState(JSON.parse(localStorage[localStorItem]));
 
     useEffect(()=>{
-        localStorage.setItem('savedCities', JSON.stringify(savedCitiesArr));
+        updateLocalStorItem(savedCitiesArr);
     }, [savedCitiesArr]);
 
     async function getWeatherSavedCity (e) {
@@ -35,12 +35,12 @@ function AsideBlock ({setObjCreationWeather}) {
     return (
         <div className='aside_block'>
             <SearchCity setObjCreationWeather={setObjCreationWeather} addObjInSavedCitiesArr={addObjInSavedCitiesArr}/>
-            <h2 className='saved_cities' data-id-citis='ww' >
+            <h2 className='saved_cities'>
                 Your saved cities
             </h2>
             <div className='wrapper_save_button'>
-            {savedCitiesArr.map(el => (
-                    <SavedCities key={el.id} arr={el} getWeatherSavedCity={getWeatherSavedCity}/>
+            {savedCitiesArr?.map(el => (
+                    <SavedCities key={el.id} cityData={el} getWeatherSavedCity={getWeatherSavedCity}/>
             ))
             }
             </div>
