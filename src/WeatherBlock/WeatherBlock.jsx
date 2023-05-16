@@ -1,7 +1,6 @@
 import './WeatherBlock.css'
 function WeatherBlock ({objCreationWeather}) {
     if (objCreationWeather && objCreationWeather.cod === 200) {
-      console.log(objCreationWeather)
         let icon = `http://openweathermap.org/img/w/${objCreationWeather.weather[0].icon}.png`;
         return (
             <div className='weather_block'>

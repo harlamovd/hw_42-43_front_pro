@@ -19,16 +19,10 @@ function AsideBlock ({setObjCreationWeather}) {
     }
     function addObjInSavedCitiesArr (obj){
         const copyArr = [... savedCitiesArr];
-        if (copyArr.find(el => +el.id === obj.id)) {
+        if (savedCitiesArr.find(el => el.id === obj.id)) {
             alert('Already saved')
         } else {
-            const newObj = {
-                name: obj.name,
-                id: `${obj.id}`,
-                country: obj.country
-            }
-            copyArr.push(newObj);
-            setSavedCitiesArr(copyArr)
+            setSavedCitiesArr([...savedCitiesArr, obj ])
         }
     }
 

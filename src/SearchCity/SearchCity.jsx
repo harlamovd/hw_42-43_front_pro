@@ -35,9 +35,13 @@ function SearchCity ({setObjCreationWeather, addObjInSavedCitiesArr}){
     }
 
     function handleChangeInput (event) {
-        const reg = new RegExp(`^${event.target.value.toLowerCase()}`, 'g');   // toLowerCase
-        const arr = cityList.filter(el=> el.name.toLowerCase().match(reg));
-        setDatalistArr(arr)
+        const value = event.target.value
+        if(value.length === 2) {
+            const reg = new RegExp(`^${value.toLowerCase()}`, 'g');   // toLowerCase
+            const arr = cityList.filter(el=> el.name.toLowerCase().match(reg));
+            setDatalistArr(arr)
+        }
+
     }
 
     function RenderDatalist ({listArr}) {

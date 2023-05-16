@@ -1,5 +1,5 @@
 import logo from '../logo.svg';
-import './HeaderBlock.css'
+import './HeaderBlock.css';
 function HeaderBlock () {
     return (
         <header className='header'>
